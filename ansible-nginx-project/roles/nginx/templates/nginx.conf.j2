@@ -1,0 +1,17 @@
+user nginx;
+worker_processes auto;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    server {
+        listen {{ nginx_port }};
+
+        location / {
+            return 200 "Nginx deployed using Ansible\n";
+        }
+    }
+}
+
